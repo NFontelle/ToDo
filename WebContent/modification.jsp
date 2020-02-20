@@ -8,21 +8,20 @@
 </head>
 <body>
 	<div>
-		<form action="">
+		<form action="${pageContext.request.contextPath}/ModifierServlet" method="POST">
 			<div>
 				<span>A faire :</span> <input type="text" id="modif" name="modif" />
+				<input type="hidden" name="id" value="" />
 			</div>
 			<div>
-				<input type="checkbox" id="modifOk" name="modifOk" /> <label>Terminé</label>
+				<input type="checkbox" id="modifOk" name="modifOk" />
+				<label>Terminé</label>
 			</div>
 			<div>
-				<input type="submit" id="enregistre" name="enregistre"
-					value="Enregistrer" /> <input type="submit" id="annule"
-					name="annule" value="Annuler" />
+				<input type="submit" id="enregistre" name="enregistre" value="Enregistrer" />
+				<input type="submit" id="annule" name="annule" value="Annuler" />
 			</div>
 		</form>
-
 	</div>
-
 </body>
 </html>

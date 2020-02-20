@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,23 +7,21 @@
 <title>ToDo</title>
 </head>
 <body>
-<h1>ToDo</h1>
-<div>
-<form action="" methode="get">
-<div>
-<label>Nom utilisateur</label>
-<input type="text" id="utilisateur" name="utilisateur"/>
+	<h1>ToDo</h1>
+	<div>
+		<form action="${pageContext.request.contextPath}/Connection" method="POST">
+			<div>
+				<label>Nom utilisateur</label>
+				<input type="text" id="utilisateur" name="utilisateur" />
+				<br>
+				<label>Mot de passe</label>
+				<input type="password" id="motDePasse" name="motDePasse" />
+			</div>
+			<div>
+				<input type="submit" value="Se connecter" />
+			</div>
 
-
-<label>Mot de passe</label>
-<input type="password" id="motDePasse" name="motDePasse"/>
-
-</div>
-<div>
-<input type="submit" value="Se connecter"/>
-</div>
-
-</form>
-</div>
+		</form>
+	</div>
 </body>
-</html> 
+</html>

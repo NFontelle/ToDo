@@ -12,13 +12,23 @@ import fr.eni.ecole.bean.ToDo;
 
 public class ToDoDAO {
 
-	public static ArrayList<ToDo> Lister() {
-		String req = "SELECT Objet(t) From ToDo t";
-		return (ArrayList<ToDo>) DAOUtil.getEntityManager().createQuery(req, ToDo.class).getResultList();
+	private DAOUtil daoUtil;
+
+	public ToDoDAO() {
+		this.daoUtil = new DAOUtil();
+	}
+	
+	public ArrayList<ToDo> lister() {
+		String req = "SELECT t FROM ToDo t";
+		return (ArrayList<ToDo>) daoUtil.getEntityManager().createQuery(req, ToDo.class).getResultList();
 	}
 
-	public static void ajouter(ToDo todo) throws SQLException {
-		EntityManager em = DAOUtil.getEntityManager();
+	public ToDo selectById(int id) {
+		return daoUtil.getEntityManager().find(ToDo.class, id);
+	}
+	
+	public void ajouter(ToDo todo) throws SQLException {
+		EntityManager em = daoUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		try {
@@ -29,8 +39,8 @@ public class ToDoDAO {
 		}
 	}
 
-	public static void supprimer(ToDo todo) throws SQLException {
-		EntityManager em = DAOUtil.getEntityManager();
+	public void supprimer(ToDo todo) throws SQLException {
+		EntityManager em = daoUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		try {
@@ -41,8 +51,8 @@ public class ToDoDAO {
 		}
 	}
 
-	public static void modifier(ToDo todo) throws SQLException {
-		EntityManager em = DAOUtil.getEntityManager();
+	public void modifier(ToDo todo) throws SQLException {
+		EntityManager em = daoUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		try {
@@ -53,4 +63,7 @@ public class ToDoDAO {
 		}
 	}
 
+	
+	
+	
 }

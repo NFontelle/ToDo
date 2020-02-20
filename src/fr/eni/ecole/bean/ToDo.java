@@ -11,7 +11,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ToDoListe")
-
 public class ToDo implements Serializable{
 
 	

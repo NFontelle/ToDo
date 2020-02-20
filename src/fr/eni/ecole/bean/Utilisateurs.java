@@ -21,8 +21,8 @@ public class Utilisateurs implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String nom;
-	private String prenom;
+	//private String nom;
+	//private String prenom;
 	private String identifiant;
 	private String motDePasse;
 	
@@ -30,11 +30,9 @@ public class Utilisateurs implements Serializable{
 		super();
 	}
 
-	public Utilisateurs(int id, String nom, String prenom, String identifiant, String motDePasse) {
+	public Utilisateurs(int id, String identifiant, String motDePasse) {
 		super();
 		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 	}
@@ -45,22 +43,6 @@ public class Utilisateurs implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
 	}
 
 	public String getIdentifiant() {

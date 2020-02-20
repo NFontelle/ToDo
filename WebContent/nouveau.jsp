@@ -8,17 +8,15 @@
 </head>
 <body>
 	<div>
-		<form action="">
+		<form action="${pageContext.request.contextPath}/AjouterServlet" method="POST">
 			<div>
-				<span>A faire :</span> <input type="text" id="modif" name="modif" />
+				<span>A faire :</span> <input type="text" id="contenu" name="contenu" />
 			</div>
 			<div>
-				<input type="submit" id="enregistre" name="enregistre"
-					value="Enregistrer" /> <input type="submit" id="annule"
-					name="annule" value="Annuler" />
+				<input type="submit" id="enregistre" name="enregistre" value="Enregistrer" />
+				<input type="reset" id="annule"	name="annule" value="Annuler" />
 			</div>
 		</form>
-
 	</div>
 </body>
 </html>

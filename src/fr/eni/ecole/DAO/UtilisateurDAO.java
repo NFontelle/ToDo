@@ -6,19 +6,25 @@ import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-
-
+import javax.persistence.TypedQuery;
 
 import fr.eni.ecole.bean.Utilisateurs;
 
 public class UtilisateurDAO {
-	public static ArrayList<Utilisateurs> Lister() {
+	
+	private DAOUtil daoUtil;
+
+	public UtilisateurDAO() {
+		this.daoUtil = new DAOUtil();
+	}
+	
+	public ArrayList<Utilisateurs> Lister() {
 		String req = "SELECT Objet(u) From utilisateur u";
-		return (ArrayList<Utilisateurs>) DAOUtil.getEntityManager().createQuery(req, Utilisateurs.class).getResultList();
+		return (ArrayList<Utilisateurs>) daoUtil.getEntityManager().createQuery(req, Utilisateurs.class).getResultList();
 	}
 
-	public static void ajouter(Utilisateurs utilisateur) throws SQLException {
-		EntityManager em = DAOUtil.getEntityManager();
+	public void ajouter(Utilisateurs utilisateur) throws SQLException {
+		EntityManager em = daoUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		try {
@@ -29,8 +35,8 @@ public class UtilisateurDAO {
 		}
 	}
 
-	public static void supprimer(Utilisateurs utilisateur) throws SQLException {
-		EntityManager em = DAOUtil.getEntityManager();
+	public void supprimer(Utilisateurs utilisateur) throws SQLException {
+		EntityManager em = daoUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		try {
@@ -41,8 +47,8 @@ public class UtilisateurDAO {
 		}
 	}
 
-	public static void modifier(Utilisateurs utilisateur) throws SQLException {
-		EntityManager em = DAOUtil.getEntityManager();
+	public void modifier(Utilisateurs utilisateur) throws SQLException {
+		EntityManager em = daoUtil.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		try {
@@ -52,4 +58,19 @@ public class UtilisateurDAO {
 			et.rollback();
 		}
 	}	
+	public Utilisateurs rechercher(String identifiant, String motDePasse) {
+		String requete = "select u from Utilisateur u where u.identifiant like :identifiant and u.motDePasse like :motDePasse";
+		TypedQuery<Utilisateurs> tq = daoUtil.getEntityManager().createQuery(requete, Utilisateurs.class);	
+		tq.setParameter("identifiant",identifiant);
+		tq.setParameter("motDePasse", motDePasse);
+		Utilisateurs u;
+		try {
+			u = tq.getSingleResult();
+			return u;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
 }

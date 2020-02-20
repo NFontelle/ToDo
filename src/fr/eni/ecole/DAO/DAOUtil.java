@@ -6,21 +6,20 @@ import javax.persistence.Persistence;
 
 public class DAOUtil {
 
-	
-	private static EntityManagerFactory emf;
-	private static EntityManager em;
-	
-	static {
+	public DAOUtil() {
 		emf = Persistence.createEntityManagerFactory("ListeToDo");
 		em = emf.createEntityManager();
 	}
 	
+	private EntityManagerFactory emf;
+	private EntityManager em;
 	
-	public static EntityManager getEntityManager(){
+	
+	public EntityManager getEntityManager(){
 		return em;
 	}
 	
-	public static void close(){
+	public void close(){
 		emf.close();
 	}
 	

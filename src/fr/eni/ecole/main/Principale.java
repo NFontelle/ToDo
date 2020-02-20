@@ -20,7 +20,7 @@ public class Principale {
 		EntityManager em =emf.createEntityManager();
 		
 		Utilisateurs u = new Utilisateurs();
-		u.setIdentifiant("bob");
+		u.setIdentifiant("toto");
 		u.setMotDePasse("Leponge");
 	
 		EntityTransaction tr = em.getTransaction();

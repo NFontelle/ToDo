@@ -8,24 +8,11 @@
 </head>
 <body>
 	<h1>ToDo</h1>
-	<div>
-	
-	
-	
-	
-	</div>
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
 	<div>
-		<form action="${pageContext.request.contextPath}/Connection" method="POST">
+		<form action="${pageContext.request.contextPath}/liste.jsp" method="POST">
 			<div>
 				<label>Nom utilisateur</label>
 				<input type="text" id="utilisateur" name="utilisateur" />

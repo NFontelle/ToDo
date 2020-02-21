@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "TP application ToDo",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NFontelle/ToDo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NFontelle/ToDo/issues"
+  },
+  "homepage": "https://github.com/NFontelle/ToDo#readme",
+  "devDependencies": {
+    "should": "^13.2.3"
+  }
+}

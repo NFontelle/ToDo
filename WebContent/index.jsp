@@ -9,6 +9,22 @@
 <body>
 	<h1>ToDo</h1>
 	<div>
+	
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div>
 		<form action="${pageContext.request.contextPath}/Connection" method="POST">
 			<div>
 				<label>Nom utilisateur</label>
